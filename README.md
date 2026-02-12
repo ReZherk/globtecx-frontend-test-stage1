@@ -79,7 +79,7 @@ task-manager/
 
 ---
 
-## 📖 Guía de Uso y Despliegue
+## 📖 Guía de Uso
 
 ### Instalación Local
 
@@ -91,15 +91,6 @@ git clone https://github.com/ReZherk/globtecx-frontend-test-stage1.git
 ```
 
 2. Navegar a la carpeta y abrir `index.html` en el navegador, o usar la extensión **Live Server** en VS Code (recomendado).
-
-### Despliegue (GitHub Pages)
-
-1. Subir el código a un repositorio de GitHub.
-2. Ir a **Settings > Pages**.
-3. Seleccionar la rama `main` y la carpeta `/root`.
-4. Guardar y acceder a la URL generada.
-
----
 
 **Desarrollado por Patrick Alexander Alcantara Sedano** 🚀
 
