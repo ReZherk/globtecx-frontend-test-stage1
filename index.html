@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestor de Tareas - GLOBTECx</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>--Gestor de Tareas--</h1>
+        <p>Organiza tus tareas de manera eficiente</p>
+    </header>
+
+    <main>
+        <section class="task-form-section">
+            <h2>Nueva Tarea</h2>
+            <form id="taskForm">
+                <div class="form-group">
+                    <label for="taskTitle">Título *</label>
+                    <input 
+                        type="text" 
+                        id="taskTitle" 
+                        placeholder="Ingrese el título de la tarea (mín. 3 caracteres)"
+                        required
+                        minlength="3"
+                    >
+                    <span class="error-message" id="titleError"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="taskPriority">Prioridad *</label>
+                    <select id="taskPriority" required>
+                        <option value="">Seleccione prioridad</option>
+                        <option value="baja">Baja</option>
+                        <option value="media">Media</option>
+                        <option value="alta">Alta</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="taskDueDate">Fecha límite</label>
+                    <input type="date" id="taskDueDate">
+                </div>
+
+                <div class="form-group">
+                    <label for="taskDescription">Descripción</label>
+                    <textarea 
+                        id="taskDescription" 
+                        rows="3" 
+                        placeholder="Descripción de la tarea (opcional)"
+                    ></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-primary" id="submitBtn">
+                    Agregar Tarea
+                </button>
+                <button type="button" class="btn btn-secondary" id="cancelBtn" style="display: none;">
+                    Cancelar
+                </button>
+            </form>
+        </section>
+
+        <section class="task-list-section">
+            <div class="controls">
+                <div class="filters">
+                    <button class="filter-btn active" data-filter="todas">
+                        Todas
+                    </button>
+                    <button class="filter-btn" data-filter="pendientes">
+                        Pendientes
+                    </button>
+                    <button class="filter-btn" data-filter="completadas">
+                        Completadas
+                    </button>
+                </div>
+
+                <div class="counters">
+                    <div class="counter">
+                        <span class="counter-label">Total:</span>
+                        <span class="counter-value" id="totalCount">0</span>
+                    </div>
+                    <div class="counter">
+                        <span class="counter-label">Pendientes:</span>
+                        <span class="counter-value" id="pendingCount">0</span>
+                    </div>
+                    <div class="counter">
+                        <span class="counter-label">Completadas:</span>
+                        <span class="counter-value" id="completedCount">0</span>
+                    </div>
+                </div>
+            </div>
+
+            <div id="taskList" class="task-list">
+                <!-- Tasks will be rendered here dynamically -->
+            </div>
+
+            <div id="emptyState" class="empty-state">
+                <p>No hay tareas para mostrar</p>
+                <p class="empty-state-subtitle">¡Comienza agregando una nueva tarea!</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 GLOBTECx - Prueba Técnica Frontend</p>
+    </footer>
+
+    <!-- Confirmation Modal -->
+    <div id="confirmModal" class="modal">
+        <div class="modal-content">
+            <h3>Confirmar eliminación</h3>
+            <p>¿Estás seguro de que deseas eliminar esta tarea?</p>
+            <div class="modal-actions">
+                <button class="btn btn-danger" id="confirmDelete">Eliminar</button>
+                <button class="btn btn-secondary" id="cancelDelete">Cancelar</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
