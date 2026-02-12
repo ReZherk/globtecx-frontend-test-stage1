@@ -1,0 +1,44 @@
+/* ============================================
+   VARIABLES CSS
+============================================ */
+:root {
+    /* Paleta Verde Profesional GLOBTECX */
+    --primary-green: #0a6847;
+    --primary-green-light: #0d8a5f;
+    --primary-green-dark: #064d35;
+    --accent-green: #10b981;
+    --accent-green-light: #34d399;
+    
+    /* Colores Secundarios */
+    --secondary-color: #64748b;
+    --success-color: #10b981;
+    --danger-color: #ef4444;
+    --warning-color: #f59e0b;
+    --info-color: #3b82f6;
+    
+    /* Backgrounds */
+    --bg-gradient-start: #f0fdf4;
+    --bg-gradient-end: #dcfce7;
+    --card-bg: #ffffff;
+    --light-bg: #f8fafc;
+    --hover-bg: #f1f5f9;
+    
+    /* Textos */
+    --text-primary: #0f172a;
+    --text-secondary: #475569;
+    --text-muted: #94a3b8;
+    
+    /* Bordes y Sombras */
+    --border-color: #e2e8f0;
+    --border-radius: 16px;
+    --border-radius-sm: 8px;
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08);
+    --shadow-md: 0 4px 12px rgba(10, 104, 71, 0.08);
+    --shadow-lg: 0 10px 30px rgba(10, 104, 71, 0.12);
+    --shadow-xl: 0 20px 40px rgba(10, 104, 71, 0.15);
+    
+    /* Prioridades */
+    --priority-alta: #ef4444;
+    --priority-media: #f59e0b;
+    --priority-baja: #10b981;
+}

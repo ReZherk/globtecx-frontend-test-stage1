@@ -1,0 +1,23 @@
+/* ============================================
+   FOOTER
+============================================ */
+footer {
+    background: white;
+    padding: 2rem;
+    text-align: center;
+    box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.05);
+    margin-top: 2rem;
+    border-top: 3px solid var(--accent-green);
+    position: relative;
+    z-index: 1;
+}
+
+footer p {
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+footer p strong {
+    color: var(--primary-green);
+    font-weight: 700;
+}
