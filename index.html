@@ -1,123 +1,116 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gestor de Tareas - GLOBTECx</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Gestor de Tareas - GLOBTECx</title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/base/reset.css">
+  <link rel="stylesheet" href="css/base/variables.css">
+  <link rel="stylesheet" href="css/base/utilities.css">
+
+  <link rel="stylesheet" href="css/layout/header.css">
+  <link rel="stylesheet" href="css/layout/main.css">
+  <link rel="stylesheet" href="css/layout/footer.css">
+
+  <link rel="stylesheet" href="css/components/form.css">
+  <link rel="stylesheet" href="css/components/buttons.css">
+  <link rel="stylesheet" href="css/components/task.css">
+  <link rel="stylesheet" href="css/components/modal.css">
+
+  <link rel="stylesheet" href="css/styles.css">
 </head>
+
 <body>
-    <header>
-        <h1>--Gestor de Tareas--</h1>
-        <p>Organiza tus tareas de manera eficiente</p>
-    </header>
 
-    <main>
-        <section class="task-form-section">
-            <h2>Nueva Tarea</h2>
-            <form id="taskForm">
-                <div class="form-group">
-                    <label for="taskTitle">Título *</label>
-                    <input 
-                        type="text" 
-                        id="taskTitle" 
-                        placeholder="Ingrese el título de la tarea (mín. 3 caracteres)"
-                        required
-                        minlength="3"
-                    >
-                    <span class="error-message" id="titleError"></span>
-                </div>
+<header class="header">
+  <h1>Gestor de Tareas</h1>
+  <p>Organiza tus tareas de manera eficiente</p>
+</header>
 
-                <div class="form-group">
-                    <label for="taskPriority">Prioridad *</label>
-                    <select id="taskPriority" required>
-                        <option value="">Seleccione prioridad</option>
-                        <option value="baja">Baja</option>
-                        <option value="media">Media</option>
-                        <option value="alta">Alta</option>
-                    </select>
-                </div>
+<main class="main">
 
-                <div class="form-group">
-                    <label for="taskDueDate">Fecha límite</label>
-                    <input type="date" id="taskDueDate">
-                </div>
+  <!-- FORM -->
+  <section class="task-form-section">
+    <h2>Nueva Tarea</h2>
 
-                <div class="form-group">
-                    <label for="taskDescription">Descripción</label>
-                    <textarea 
-                        id="taskDescription" 
-                        rows="3" 
-                        placeholder="Descripción de la tarea (opcional)"
-                    ></textarea>
-                </div>
+    <form id="taskForm">
+      <div class="form-group">
+        <label for="taskTitle">Título *</label>
+        <input id="taskTitle" minlength="3" required>
+        <span id="titleError" class="error-message"></span>
+      </div>
 
-                <button type="submit" class="btn btn-primary" id="submitBtn">
-                    Agregar Tarea
-                </button>
-                <button type="button" class="btn btn-secondary" id="cancelBtn" style="display: none;">
-                    Cancelar
-                </button>
-            </form>
-        </section>
+      <div class="form-group">
+        <label>Prioridad *</label>
+        <select id="taskPriority" required>
+          <option value="">Seleccione prioridad</option>
+          <option value="baja">Baja</option>
+          <option value="media">Media</option>
+          <option value="alta">Alta</option>
+        </select>
+      </div>
 
-        <section class="task-list-section">
-            <div class="controls">
-                <div class="filters">
-                    <button class="filter-btn active" data-filter="todas">
-                        Todas
-                    </button>
-                    <button class="filter-btn" data-filter="pendientes">
-                        Pendientes
-                    </button>
-                    <button class="filter-btn" data-filter="completadas">
-                        Completadas
-                    </button>
-                </div>
+      <div class="form-group">
+        <label>Fecha límite</label>
+        <input type="date" id="taskDueDate">
+      </div>
 
-                <div class="counters">
-                    <div class="counter">
-                        <span class="counter-label">Total:</span>
-                        <span class="counter-value" id="totalCount">0</span>
-                    </div>
-                    <div class="counter">
-                        <span class="counter-label">Pendientes:</span>
-                        <span class="counter-value" id="pendingCount">0</span>
-                    </div>
-                    <div class="counter">
-                        <span class="counter-label">Completadas:</span>
-                        <span class="counter-value" id="completedCount">0</span>
-                    </div>
-                </div>
-            </div>
+      <div class="form-group">
+        <label>Descripción</label>
+        <textarea id="taskDescription"></textarea>
+      </div>
 
-            <div id="taskList" class="task-list">
-                <!-- Tasks will be rendered here dynamically -->
-            </div>
+      <button type="submit" id="submitBtn" class="btn btn-primary">
+        Agregar Tarea
+      </button>
 
-            <div id="emptyState" class="empty-state">
-                <p>No hay tareas para mostrar</p>
-                <p class="empty-state-subtitle">¡Comienza agregando una nueva tarea!</p>
-            </div>
-        </section>
-    </main>
+      <button type="button" id="cancelBtn" class="btn btn-secondary hidden">
+        Cancelar
+      </button>
+    </form>
+  </section>
 
-    <footer>
-        <p>&copy; 2024 GLOBTECx - Prueba Técnica Frontend</p>
-    </footer>
+  <!-- TASK LIST -->
+  <section class="task-list-section">
+    <div class="controls">
+      <div class="filters">
+        <button class="filter-btn active" data-filter="todas">Todas</button>
+        <button class="filter-btn" data-filter="pendientes">Pendientes</button>
+        <button class="filter-btn" data-filter="completadas">Completadas</button>
+      </div>
 
-    <!-- Confirmation Modal -->
-    <div id="confirmModal" class="modal">
-        <div class="modal-content">
-            <h3>Confirmar eliminación</h3>
-            <p>¿Estás seguro de que deseas eliminar esta tarea?</p>
-            <div class="modal-actions">
-                <button class="btn btn-danger" id="confirmDelete">Eliminar</button>
-                <button class="btn btn-secondary" id="cancelDelete">Cancelar</button>
-            </div>
-        </div>
+      <div class="counters">
+        <div>Total: <span id="totalCount">0</span></div>
+        <div>Pendientes: <span id="pendingCount">0</span></div>
+        <div>Completadas: <span id="completedCount">0</span></div>
+      </div>
     </div>
 
-    <script src="app.js"></script>
+    <div id="taskList" class="task-list"></div>
+
+    <div id="emptyState" class="empty-state">
+      <p>No hay tareas</p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <p>© 2024 GLOBTECx</p>
+</footer>
+
+<!-- MODAL -->
+<div id="confirmModal" class="modal">
+  <div class="modal-content">
+    <h3>Confirmar eliminación</h3>
+    <button id="confirmDelete" class="btn btn-danger">Eliminar</button>
+    <button id="cancelDelete" class="btn btn-secondary">Cancelar</button>
+  </div>
+</div>
+
+<script type="module" src="js/app.js"></script>
+
 </body>
 </html>
